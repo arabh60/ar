@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>AR 3D Model</title>
+
+    <!-- Import A-Frame and AR.js Libraries -->
+    <script src="https://aframe.io/releases/1.2.0/aframe.min.js"></script>
+    <script src="https://cdn.rawgit.com/jeromeetienne/ar.js/1.7.2/aframe/build/aframe-ar.js"></script>
+  </head>
+  <body style="margin: 0; overflow: hidden;">
+    <!-- AR.js Scene Setup -->
+    <a-scene
+      embedded
+      vr-mode-ui="enabled: false"
+      arjs="trackingMethod: best; sourceType: webcam; debugUIEnabled: false;"
+    >
+      <!-- Define a marker (like QR code) -->
+      <a-marker preset="hiro">
+        <!-- Add the 3D model -->
+        <a-entity
+          gltf-model="url(https://your-server.com/path-to-your-model.glb)"
+          scale="1 1 1"
+          position="0 0 0"
+          rotation="0 0 0"
+        ></a-entity>
+      </a-marker>
+
+      <!-- Basic lighting for the model -->
+      <a-light type="directional" position="0 1 0"></a-light>
+
+      <!-- Add a camera -->
+      <a-entity camera></a-entity>
+    </a-scene>
+  </body>
+</html>
